@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahad World | Unlimited Resources</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+        
+        body {
+            background-color: #000;
+            color: #0f0;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #0f0;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 10px #0f0;
+            margin-bottom: 10px;
+            animation: glow 2s infinite alternate;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #0a0;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background-color: rgba(0, 20, 0, 0.7);
+            border: 1px solid #0f0;
+            padding: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+        }
+        
+        .card h2 {
+            color: #0f0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #0a0;
+            padding-bottom: 10px;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #0a0;
+        }
+        
+        .feature-list li:before {
+            content: ">> ";
+            color: #0f0;
+        }
+        
+        .counter {
+            text-align: center;
+            font-size: 2rem;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(0, 30, 0, 0.7);
+            border: 1px solid #0f0;
+            border-radius: 5px;
+        }
+        
+        .money-counter {
+            color: #0f0;
+            font-weight: bold;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px #0f0;
+        }
+        
+        .chat-container {
+            background-color: rgba(0, 20, 0, 0.7);
+            border: 1px solid #0f0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .chat-messages {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #0a0;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: rgba(0, 10, 0, 0.9);
+        }
+        
+        .chat-input {
+            display: flex;
+        }
+        
+        .chat-input input {
+            flex-grow: 1;
+            background-color: #000;
+            border: 1px solid #0a0;
+            color: #0f0;
+            padding: 8px;
+        }
+        
+        .chat-input button {
+            background-color: #0a0;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #0f0;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #0a0;
+        }
+        
+        .warning {
+            color: #ff0;
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #0f0;
+            }
+            to {
+                text-shadow: 0 0 20px #0f0, 0 0 30px #0f0;
+            }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    
+    <div class="container">
+        <header>
+            <h1>AHAD WORLD</h1>
+            <p class="tagline">UNLIMITED MONEY • 4X MULTIPLIER • TRADE CHAT INCOME • PLATFORM HACKS</p>
+        </header>
+        
+        <div class="counter">
+            <div>MONEY GENERATED:</div>
+            <div class="money-counter" id="money">$1,000,000</div>
+            <div>+$4,000 every second (4x multiplier active)</div>
+        </div>
+        
+        <div class="main-content">
+            <div class="card">
+                <h2>UNLIMITED MONEY HACK</h2>
+                <ul class="feature-list">
+                    <li>Auto-generate $1,000 every second</li>
+                    <li>4x multiplier activated</li>
+                    <li>No limits, no restrictions</li>
+                    <li>Works on all devices</li>
+                    <li>Undetectable by banks</li>
+                    <li>24/7 money generation</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>TRADE CHAT INCOME</h2>
+                <ul class="feature-list">
+                    <li>Access premium trade channels</li>
+                    <li>Automated profitable trades</li>
+                    <li>Real-time market analysis</li>
+                    <li>Insider trading information</li>
+                    <li>Crypto currency manipulation</li>
+                    <li>Stock market predictions</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>PLATFORM HACKS</h2>
+                <ul class="feature-list">
+                    <li>YouTube Premium - Free Forever</li>
+                    <li>Netflix - All Plans Unlocked</li>
+                    <li>Spotify - Unlimited Skips</li>
+                    <li>Amazon Prime - Free Shipping</li>
+                    <li>Disney+ - All Content</li>
+                    <li>HBO Max - No Ads</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="chat-container">
+            <h2>TRADE CHAT <span class="blink">LIVE</span></h2>
+            <div class="chat-messages" id="chatMessages">
+                <div>> SYSTEM: Welcome to Ahad World Trade Chat</div>
+                <div>> USER247: Just made $50K using the crypto tips!</div>
+                <div>> HACKER_X: Netflix hack working perfectly!</div>
+                <div>> TRADER_99: 4x multiplier is insane! $$$</div>
+                <div>> USER_ALPHA: YouTube Premium unlocked successfully</div>
+                <div>> ADMIN: New hack for Disney+ added</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button onclick="sendMessage()">SEND</button>
+            </div>
+        </div>
+        
+        <div class="warning">
+            WARNING: This is a fictional website for entertainment purposes only. No actual hacking is occurring.
+        </div>
+        
+        <footer>
+            <p>AHAD WORLD &copy; 2023 | UNLIMITED RESOURCES | 4X MULTIPLIER ACTIVE</p>
+            <p>This website is for entertainment purposes only. No real hacking occurs.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Matrix background effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*";
+        const charArray = chars.split("");
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+        
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = "#0f0";
+            ctx.font = fontSize + "px monospace";
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                
+                drops[i]++;
+            }
+        }
+        
+        setInterval(drawMatrix, 35);
+        
+        // Money counter
+        let money = 1000000;
+        const moneyElement = document.getElementById('money');
+        
+        function updateMoney() {
+            money += 4000; // 4x multiplier of $1000
+            moneyElement.textContent = '$' + money.toLocaleString();
+        }
+        
+        setInterval(updateMoney, 1000);
+        
+        // Chat functionality
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            
+            if (input.value.trim() !== '') {
+                const newMessage = document.createElement('div');
+                newMessage.textContent = '> USER: ' + input.value;
+                messages.appendChild(newMessage);
+                input.value = '';
+                messages.scrollTop = messages.scrollHeight;
+                
+                // Simulate response after a delay
+                setTimeout(() => {
+                    const responses = [
+                        '> BOT: Great trade idea!',
+                        '> SYSTEM: New money hack available!',
+                        '> HACKER_PRO: Try the Netflix hack!',
+                        '> TRADER_ELITE: Market is bullish today!',
+                        '> ADMIN: 4x multiplier active for all users!'
+                    ];
+                    const response = document.createElement('div');
+                    response.textContent = responses[Math.floor(Math.random() * responses.length)];
+                    messages.appendChild(response);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+            }
+        }
+        
+        // Allow sending message with Enter key
+        document.getElementById('chatInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // Add random chat messages periodically
+        setInterval(() => {
+            const messages = document.getElementById('chatMessages');
+            const randomMessages = [
+                '> USER_' + Math.floor(Math.random() * 1000) + ': Just made $' + (Math.floor(Math.random() * 100) + 10) + 'K!',
+                '> TRADER: Crypto is pumping today!',
+                '> HACKER: New YouTube hack working!',
+                '> BOT: Market update: All indicators positive',
+                '> USER: Netflix 4K unlocked successfully!',
+                '> ADMIN: Server upgrade complete - faster money generation!'
+            ];
+            
+            const newMessage = document.createElement('div');
+            newMessage.textContent = randomMessages[Math.floor(Math.random() * randomMessages.length)];
+            messages.appendChild(newMessage);
+            messages.scrollTop = messages.scrollHeight;
+        }, 5000);
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
